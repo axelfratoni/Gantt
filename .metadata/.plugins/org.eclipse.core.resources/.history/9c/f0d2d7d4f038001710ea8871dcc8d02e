@@ -1,0 +1,40 @@
+package backend;
+
+// Forwarder to UserScheduler
+public class KLT {
+
+	private UserScheduler us;
+	
+	public KLT() {
+		
+	}
+	
+	public boolean isFinished() {
+		return us.isFinished();
+	}
+
+	public boolean wantsCPU() {
+		return us.wantsCPU();
+	}
+
+	public void runCPU(int i) {
+		us.runCPU(i);
+	}
+
+	public boolean wantsIO() {
+		return us.wantsIO();
+	}
+
+	public int getIORequest() {
+		return us.getIORequest();
+	}
+
+	public void runIO(int i) {
+		us.runIO(i);
+	}
+
+	public void oneQuantumGoesBy() {
+		us.oneQuantumGoesBy();
+	}
+	
+}

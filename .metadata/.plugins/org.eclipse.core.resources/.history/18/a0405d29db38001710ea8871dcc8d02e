@@ -1,0 +1,19 @@
+package backend;
+
+import java.util.*;
+
+public class KernelSchedulerFIFO {
+
+	private Queue<KLT> readyQueue;
+	private KLT[] cores;
+	private List<KLT> notArrivedQueue;
+	private Queue<KLT>[] ioQueue;
+	
+	public KernelSchedulerFIFO() {
+		
+	}
+	
+	public Gantt solve() {
+		
+	}
+}

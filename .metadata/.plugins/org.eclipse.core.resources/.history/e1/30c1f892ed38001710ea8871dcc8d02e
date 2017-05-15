@@ -1,0 +1,27 @@
+package backend;
+
+public class Burst {
+
+	public int time;
+
+	public boolean isCPU() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isIO() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getRequestNumber() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public boolean isNotArrived() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

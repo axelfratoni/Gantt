@@ -1,0 +1,57 @@
+package backend;
+
+import java.util.*;
+
+public class KernelSchedulerFIFO {
+
+	private Queue<KLT> readyQueue;
+	private KLT[] cores;
+	private List<KLT> notArrivedQueue;
+	private Queue<KLT>[] ioQueues;
+	
+	public KernelSchedulerFIFO() {
+		
+	}
+	
+	public Gantt solve() {
+		
+		Gantt gantt = new Gantt();
+		boolean done = true;
+		
+		for (int time = 0; !done; time++) {
+			
+			// Check CPU
+			for (int i = 0; i < cores.length; i++) {
+				if (cores[i] != null || !readyQueue.isEmpty()) {
+					if (cores[i] == null) {
+						cores[i] = readyQueue.poll();
+					}
+				}
+			}
+			
+			// Check and run I/O
+			for (int i = 0; i < ioQueues.length; i++) {
+				
+				if (!ioQueues[i].isEmpty()) {
+
+					KLT current = ioQueues[i].peek();
+					current.runIO(i); // Marcar en gantt
+					if (current.wantsCPU()) {
+						readyQueue.add(ioQueues[i].poll());
+					}
+				}
+			}
+			
+			// Run CPU
+			for (int i = 0; i < cores.length; i++) {
+				if (cores[i] != null) {
+					cores[i].runCPU(i); // Marcar en gantt
+					if (cores[i].isFinished()) {
+						cores[i] = null;
+					}
+				}
+			}
+		}
+		return gantt;
+	}
+}

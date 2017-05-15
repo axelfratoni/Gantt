@@ -1,0 +1,8 @@
+package backend;
+
+import java.util.*;
+
+public class KernelSchedulerFIFO {
+
+	private Queue<KLT> readyQueue;
+}

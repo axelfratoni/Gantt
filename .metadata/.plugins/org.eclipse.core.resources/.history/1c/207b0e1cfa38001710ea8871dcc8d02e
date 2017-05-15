@@ -1,0 +1,17 @@
+package frontend;
+
+import backend.*;
+import java.util.*;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Queue<Burst> trace = new LinkedList<>();
+		trace.add(new Burst(Burst.BurstType.CPU, 3));
+		trace.add(new Burst(Burst.BurstType.IO_1, 2));
+		trace.add(new Burst(Burst.BurstType.CPU, 1));
+		ULT ult1 = new ULT(trace);
+	}
+
+}

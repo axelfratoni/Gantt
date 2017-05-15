@@ -1,0 +1,47 @@
+package backend;
+
+import java.util.*;
+
+public class ULT {
+
+	private Queue<Burst> trace;	
+	
+	public ULT() {
+		
+	}
+	
+	public boolean isFinished() {
+		return trace.isEmpty();;
+	}
+
+	public boolean wantsCPU() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void runCPU(int core) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean wantsIO() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getIORequest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void runIO(int io) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void oneQuantumGoesBy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

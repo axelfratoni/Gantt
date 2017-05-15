@@ -1,0 +1,47 @@
+package backend;
+
+public class KLT {
+
+	private UserScheduler us;
+	
+	public KLT() {
+		
+	}
+	
+	public boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean wantsCPU() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void runCPU(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean wantsIO() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getIORequest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void runIO(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void oneQuantumGoesBy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

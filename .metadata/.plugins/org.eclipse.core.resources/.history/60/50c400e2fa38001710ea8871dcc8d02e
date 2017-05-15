@@ -1,0 +1,56 @@
+package backend;
+
+// Forwarder to UserScheduler
+public class KLT {
+
+	private int id;
+	private int arrivalTime;
+	private UserScheduler us;
+	
+	public KLT() {
+		
+	}
+	
+	public KLT(int id, int arrivalTime, UserScheduler us) {
+		this.id = id;
+		this.arrivalTime = arrivalTime;
+		this.us = us;
+	}
+	
+	public boolean isFinished() {
+		return us.isFinished();
+	}
+
+	public boolean wantsCPU() {
+		return us.wantsCPU();
+	}
+
+	public void runCPU(int i) {
+		us.runCPU(i);
+	}
+
+	public boolean wantsIO() {
+		return us.wantsIO();
+	}
+
+	public int getIORequest() {
+		return us.getIORequest();
+	}
+
+	public void runIO(int i) {
+		us.runIO(i);
+	}
+
+	public void oneQuantumGoesBy() {
+		us.oneQuantumGoesBy();
+	}
+
+	public void markGanttIO(Gantt gantt, int time, int io) {
+		us.markGanttIO(gantt, time, io, id);
+	}
+
+	public void markGanttCPU(Gantt gantt, int time, int core_id) {
+		us.markGanttCPU(gantt, time, core_id, id);
+	}
+	
+}
