@@ -2,7 +2,7 @@ package backend;
 
 import java.util.*;
 
-public class ULT {
+public class ULT implements Comparable<ULT> {
 
 	private Queue<Burst> trace;	
 	private int id;
@@ -78,6 +78,21 @@ public class ULT {
 
 	public void markGanttCPU(Gantt gantt, int time, int core_id, int klt_id) {
 		gantt.markCPU(time, core_id, klt_id, id);
+	}
+	
+	public int remainingCPU() {
+		int cpuTime = 0;
+		for (Burst b: trace) {
+			if (b.type == Burst.BurstType.CPU) {
+				cpuTime += b.time;
+			}
+		}
+		return cpuTime;
+	}
+
+	@Override
+	public int compareTo(ULT other) {
+		return other.remainingCPU() - this.remainingCPU();
 	}
 
 }

@@ -75,6 +75,8 @@ public class KernelSchedulerFIFO implements KernelScheduler {
 						ioQueues[cores[i].getIORequest()].add(cores[i]);
 						cores[i] = null;
 					}
+				} else {
+					gantt.markSO(time, i);
 				}
 			}
 

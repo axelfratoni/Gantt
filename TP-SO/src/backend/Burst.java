@@ -2,7 +2,7 @@ package backend;
 
 public class Burst {
 
-	private BurstType type;
+	public BurstType type;
 	public int time;
 
 	public Burst(BurstType type, int time) {

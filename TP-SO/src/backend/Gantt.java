@@ -21,4 +21,8 @@ public class Gantt {
 		return s;
 	}
 
+	public void markSO(int time, int core) {
+		s += "Idle process (SO) time: " + time + "\nCore: " + core + "\n\n";
+	}
+
 }
