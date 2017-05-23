@@ -22,7 +22,7 @@ public class Gantt {
 	}
 
 	public void markSO(int time, int core) {
-		s += "Idle process (SO) time: " + time + "\nCore: " + core + "\n\n";
+		s += "Idle process (SO) time: " + time + "\nCore: " + (core+1) + "\n\n";
 	}
 
 }
