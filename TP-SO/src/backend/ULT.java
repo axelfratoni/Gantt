@@ -92,7 +92,7 @@ public class ULT implements Comparable<ULT> {
 
 	@Override
 	public int compareTo(ULT other) {
-		return other.remainingCPU() - this.remainingCPU();
+		return this.remainingCPU() - other.remainingCPU();
 	}
 
 }
