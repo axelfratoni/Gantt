@@ -6,6 +6,7 @@ public class ULT implements Comparable<ULT> {
 
 	private Queue<Burst> trace;	
 	private int id;
+	private int waitingTime;
 	
 	public ULT() {
 		
@@ -14,6 +15,7 @@ public class ULT implements Comparable<ULT> {
 	public ULT(int id, Queue<Burst> trace) {
 		this.id = id;
 		this.trace = trace;
+		waitingTime = 0;
 	}
 	
 	public boolean isFinished() {
@@ -89,7 +91,15 @@ public class ULT implements Comparable<ULT> {
 		}
 		return cpuTime;
 	}
+	
+	public int waitingTime() {
+		return waitingTime;
+	}
 
+	public void waitQuantum() {
+		waitingTime++;
+	}
+	
 	@Override
 	public int compareTo(ULT other) {
 		return this.remainingCPU() - other.remainingCPU();

@@ -21,7 +21,7 @@ public class Test {
 		List<ULT> userThreads = new LinkedList<>();
 		userThreads.add(ult1);
 		userThreads.add(ult2);
-		UserScheduler us1 = new UserSchedulerSRT(userThreads);
+		UserScheduler us1 = new UserSchedulerHRRN(userThreads);
 		KLT klt1 = new KLT(1, 0, us1);
 
 		trace = new LinkedList<>();
@@ -38,7 +38,7 @@ public class Test {
 		userThreads = new LinkedList<>();
 		userThreads.add(ult1);
 		userThreads.add(ult2);
-		us1 = new UserSchedulerSRT(userThreads);
+		us1 = new UserSchedulerHRRN(userThreads);
 		KLT klt2 = new KLT(2, 2, us1);
 		
 		trace = new LinkedList<>();
@@ -48,7 +48,7 @@ public class Test {
 		ult1 = new ULT(1, trace);
 		userThreads = new LinkedList<>();
 		userThreads.add(ult1);
-		us1 = new UserSchedulerSRT(userThreads);
+		us1 = new UserSchedulerHRRN(userThreads);
 		KLT klt3 = new KLT(3, 1, us1);
 		
 		List<KLT> kernelThreads = new LinkedList<>();
