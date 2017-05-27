@@ -137,6 +137,29 @@ public class KernelSchedulerRR implements KernelScheduler {
 					done = false;
 				}
 			}
+			
+			// Dump ready queue
+			Queue<KLT> auxQueue = new LinkedList<>();
+			while(!readyQueue.isEmpty()) {
+				KLT k = readyQueue.remove();
+				gantt.addReady(time, k.getID());
+				auxQueue.add(k);
+			}
+			while(!auxQueue.isEmpty()) {
+				readyQueue.add(auxQueue.remove());
+			}
+			
+			// Dump IO queues
+			for (int i = 0; i < 3; i++) {
+				while(!ioQueues[i].isEmpty()) {
+					KLT k = ioQueues[i].remove();
+					gantt.addIO(time, i, k.getID());
+					auxQueue.add(k);
+				}
+				while(!auxQueue.isEmpty()) {
+					ioQueues[i].add(auxQueue.remove());
+				}
+			}
 		}
 		
 		return gantt;

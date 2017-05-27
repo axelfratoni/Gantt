@@ -68,4 +68,8 @@ public class KLT {
 		return arrivalTime == 0;
 	}
 	
+	public int getID() {
+		return id;
+	}
+	
 }
