@@ -1,0 +1,46 @@
+body {
+    background:#757575;
+    z-index:-5;
+}
+
+.centerText {
+	text-align: center;
+}
+
+#tracerBox {
+	margin-right: 5%;
+	margin-top: 5%;
+	//height: 500px;
+	background-color: #000;
+	z-index:-4;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#lines {
+    background-size: 40px 40px;  
+    background-image:repeating-linear-gradient(0deg, #fff, #fff 1px, transparent 1px, transparent 40px),repeating-linear-gradient(-90deg, #fff, #fff 1px, transparent 1px, transparent 40px);
+    height:100%;
+    width: 2000px;
+    opacity:0.14;
+    position:relative;
+    z-index: 10;
+    overflow: auto;
+}
+
+.trace {
+	height: 10px;
+}
+
+.run{
+	height: 100%;
+	width: 40px;
+	float: left;
+	opacity:1;
+}
+
+#tLabels {
+	margin-left: 5%;
+	float: left;
+	text-align: right;
+}
