@@ -44,9 +44,48 @@ public class Gantt {
 		return s;
 	}
 	
-	public String getJson(){
+	public String getRunJson(){
 		j += "]";
 		return j;
+	}
+	
+	public String getReadyJson(){
+		String json = "[%22" + ready[0];
+		int last = ready.length-1;
+		for (int i = ready.length-1; i >= 0; i--){
+			if (!ready[i].equals("")){
+				last = i;
+				break;
+			}
+		}
+		for (int i = 1; i <= last; i++){
+			json += "%22,%22" + ready[i]; 
+		}
+		json += "%22]";
+		return json;
+	}
+	
+	public String getBlockJson(){
+		String json = "{";
+		for(int j=0; j<3; j++){
+			if(j != 0){
+				json += ",";
+			}
+			json += "%22b" + Integer.toString(j) + "%22" + ":[%22" + io[j][0];
+			int last = io[j].length-1;
+			for (int i = io[j].length-1; i >= 0; i--){
+				if (!io[j][i].equals("")){
+					last = i;
+					break;
+				}
+			}
+			for (int i = 1; i <= last; i++){
+				json += "%22,%22" + io[j][i]; 
+			}
+			json += "%22]";
+		}
+		json += "}";
+		return json;
 	}
 
 	public void markSO(int time, int core) {

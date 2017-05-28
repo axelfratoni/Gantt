@@ -82,8 +82,9 @@ public class Test {
 			System.out.println("lmao");
 		} */
 		//String parameters = "asd";
-		Desktop.getDesktop().open(new File(createHtmlLauncher("./index.html?gantt=" + gantt.getJson() + "&threads=" + threadsCount + "&devises=" + deviseCount)));
+		Desktop.getDesktop().open(new File(createHtmlLauncher("./index.html?gantt=" + gantt.getRunJson() + "&threads=" + threadsCount + "&devises=" + deviseCount + "&ready=" + gantt.getReadyJson() + "&block=" + gantt.getBlockJson())));
 		System.out.println(gantt);
+		System.out.println(gantt.getBlockJson());
 	}
 	
 	private static String createHtmlLauncher(String targetUrl) throws Exception {          

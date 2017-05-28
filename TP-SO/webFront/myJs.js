@@ -3,10 +3,17 @@ threads = null;
 devises = null;
 traceCount = 0;
 traceMap = null;
+ready = null;
+blocks = null;
 $(document).ready(function() {
     gantt = JSON.parse(getParameterByName("gantt"));
     threads = JSON.parse(getParameterByName("threads"));
     devises = parseInt(getParameterByName("devises"));
+    ready = JSON.parse(getParameterByName("ready"));
+    blocks = new Array(3);
+    blocks[0] = (JSON.parse(getParameterByName("block"))).b0;
+    blocks[1] = (JSON.parse(getParameterByName("block"))).b1;
+    blocks[2] = (JSON.parse(getParameterByName("block"))).b2;
     traceMap = new Map();
     (function(count){    
         $.each(threads, function(i,value) {
@@ -19,7 +26,7 @@ $(document).ready(function() {
     })(0);
     traceCount += devises;
     traceCount += 1;
-    var boxHeight = 40 * (traceCount+1);
+    var boxHeight = (40 * (traceCount+1) + 5);
     $("#tracerBox").css("height", boxHeight + "px");
     for (var i = 0; i<traceCount; i++){
         $("#lines").append('<div class="trace" id="trace'+ i +'"></div>');
@@ -36,6 +43,7 @@ $(document).ready(function() {
     var label = "SO-";
     $("#tLabels").append('<div class="tLab">'+ label +'</div>');
     $(".tLab").css("margin-top","23px");
+    $("#quantums").append('<span class="qLabels" style="color: black;width:36px">0</span>');
     drawGantt();
 });
 
@@ -56,7 +64,7 @@ function drawGantt() {
     for(var index = 0; index < ganttSize; index++){
         if (actualTime < parseInt(gantt[index].Time)) {
             actualTime = parseInt(gantt[index].Time);
-            nextLine(ran);
+            nextLine(ran,actualTime);
             ran = [];
         }
         if(gantt[index].Run == "CPU"){
@@ -82,16 +90,25 @@ function drawGantt() {
         if(gantt[index].Run == "IO"){
             i = traceCount - devises - 1 + parseInt(gantt[index].Device);
             var color = "green";
-            $("#trace"+ i).append('<div class="run" style="background-color: '+ color +';"></div>');
+            var text = blocks[parseInt(gantt[index].Device)][actualTime-1];
+            $("#trace"+ i).append('<div class="run" title="KLT '+text+'" style="background-color: '+ color +';">KLT'+ text +'</div>');
             ran.push(i);
         }
     }
 }
 
-function nextLine(ran) {
+function nextLine(ran,t) {
     for (var i = 0; i < traceCount; i++) {
         if(!ran.includes(i)){
             $("#trace"+ i).append('<div class="run"></div>');
         }
     }
+    var readyText = "Ready queue:";
+    if(t < Object.keys(ready).length)
+        for(str in ready[t].split(" ")){
+            if(str != " ") {
+                readyText += "\nKLT" + (parseInt(str) + 1);
+            }
+        }
+    $("#quantums").append('<span class="qLabels" title="'+ readyText +'">'+ t +'</span>');
 }
