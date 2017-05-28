@@ -1,0 +1,36 @@
+2 // Cantidad de KLT
+RR 1 // KernelScheduler
+2 // Amount of cores
+KLT // Empieza un klt
+1 // Arrival time
+3 // Cantidad de ULT's
+FIFO // UserScheduler para este klt
+ULT // Empieza un ult
+1 // Arrival time
+2 // Cpu1
+3 2 // IOTime IOType
+4 // Cpu2
+ULT // ...
+0
+2
+3
+4
+ULT
+1
+2
+3 2
+4
+KLT
+0
+2
+FIFO
+ULT
+4
+3
+2 3
+1
+ULT
+4
+3
+2 2
+1
