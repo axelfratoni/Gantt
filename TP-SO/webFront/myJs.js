@@ -1,6 +1,6 @@
 gantt = null;
 threads = null;
-devises = null;
+devices = null;
 traceCount = 0;
 traceMap = null;
 ready = null;
@@ -8,7 +8,7 @@ blocks = null;
 $(document).ready(function() {
     gantt = JSON.parse(getParameterByName("gantt"));
     threads = JSON.parse(getParameterByName("threads"));
-    devises = parseInt(getParameterByName("devises"));
+    devices = parseInt(getParameterByName("devices"));
     ready = JSON.parse(getParameterByName("ready"));
     blocks = new Array(3);
     blocks[0] = (JSON.parse(getParameterByName("block"))).b0;
@@ -25,7 +25,7 @@ $(document).ready(function() {
             }
         });
     })(0);
-    traceCount += devises;
+    traceCount += devices;
     traceCount += 1;
     var boxHeight = (40 * (traceCount+1) + 20);
     $("#tracerBox").css("height", boxHeight + "px");
@@ -38,7 +38,7 @@ $(document).ready(function() {
         var label = "KLT" + parseInt(key/100) + " ULT" + key%100 + "-";
         $("#tLabels").append('<div class="tLab">'+ label +'</div>');
     }
-    for (var i = 1; i <= devises; i++) {
+    for (var i = 1; i <= devices; i++) {
         var label = "Device " + i + "-";
         $("#tLabels").append('<div class="tLab">'+ label +'</div>');
     }
@@ -94,7 +94,7 @@ function drawGantt() {
             }
         }
         if(gantt[index].Run == "IO"){
-            i = traceCount - devises - 1 + parseInt(gantt[index].Device);
+            i = traceCount - devices - 1 + parseInt(gantt[index].Device);
             var color = "green";//"linear-gradient(to bottom right, red, blue)";
             var text = gantt[index].KLT;
             var title = "KLT" + gantt[index].KLT + " ULT" + gantt[index].ULT;
