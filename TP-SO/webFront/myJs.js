@@ -27,10 +27,11 @@ $(document).ready(function() {
     })(0);
     traceCount += devises;
     traceCount += 1;
-    var boxHeight = (40 * (traceCount+1) + 5);
+    var boxHeight = (40 * (traceCount+1) + 20);
     $("#tracerBox").css("height", boxHeight + "px");
+    $("#quantums").css("margin-top", (boxHeight - 40) + "px");
     for (var i = 0; i<traceCount; i++){
-        $("#lines").append('<div class="trace" id="trace'+ i +'"></div>');
+        $("#traceContainer").append('<div class="trace" id="trace'+ i +'"></div>');
         $("#trace"+ i).css("margin-top","30px");
     }
     for (var key of traceMap.keys()) {
@@ -41,7 +42,7 @@ $(document).ready(function() {
         var label = "Device " + i + "-";
         $("#tLabels").append('<div class="tLab">'+ label +'</div>');
     }
-    var label = "SO-";
+    var label = "Idle process (SO)-";
     $("#tLabels").append('<div class="tLab">'+ label +'</div>');
     $(".tLab").css("margin-top","23px");
     $("#quantums").append('<span class="qLabels" style="color: black;width:36px">0</span>');
