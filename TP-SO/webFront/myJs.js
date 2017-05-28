@@ -118,21 +118,21 @@ function nextLine(ran,t) {
             readyText += " KLT" + arr[i];
         }
     }
-    readyText += "\nDevise 1:"
+    readyText += "\nDevice 1:"
     if((t-1) < Object.keys(blocks[0]).length){
         var arr = blocks[0][t-1].split(" ");
         for (var i=0; i< arr.length-1; i++){
             readyText += " KLT" + arr[i];
         }
     }
-    readyText += "\nDevise 2:"
+    readyText += "\nDevice 2:"
     if((t-1) < Object.keys(blocks[1]).length){
         var arr = blocks[1][t-1].split(" ");
         for (var i=0; i< arr.length-1; i++){
             readyText += " KLT" + arr[i];
         }
     }
-    readyText += "\nDevise 3:"
+    readyText += "\nDevice 3:"
     if((t-1) < Object.keys(blocks[2]).length){
         var arr = blocks[2][t-1].split(" ");
         for (var i=0; i< arr.length-1; i++){
