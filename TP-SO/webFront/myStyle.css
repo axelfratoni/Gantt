@@ -1,7 +1,17 @@
-body {
+/*body {
     background:#757575;
     z-index:-5;
-}
+}*/
+
+body {
+	overflow: visible !important;
+	background: -webkit-linear-gradient(45deg, #777777 10%, #333333 90%);
+	background: -moz-linear-gradient(45deg, #777777 10%, #333333 90%);
+	background: -ms-linear-gradient(45deg, #777777 10%, #333333 90%);
+	background: -o-linear-gradient(45deg, #777777 10%, #333333 90%);
+	background: linear-gradient(45deg, #777777 10%, #333333 90%);
+	z-index: -5;
+ }
 
 #tracerBox {
 	margin-right: 5%;
@@ -53,4 +63,8 @@ body {
 	width: 40px; 
 	z-index: 20;
 	text-align: left;
+}
+
+.ui-tooltip {
+    white-space: pre-line;
 }

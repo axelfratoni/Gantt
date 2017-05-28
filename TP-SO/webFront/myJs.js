@@ -14,6 +14,7 @@ $(document).ready(function() {
     blocks[0] = (JSON.parse(getParameterByName("block"))).b0;
     blocks[1] = (JSON.parse(getParameterByName("block"))).b1;
     blocks[2] = (JSON.parse(getParameterByName("block"))).b2;
+    console.log(blocks[0]);
     traceMap = new Map();
     (function(count){    
         $.each(threads, function(i,value) {
@@ -79,22 +80,28 @@ function drawGantt() {
         }
         if(gantt[index].Run == "SO"){
             i = traceCount - 1;
-            core = parseInt(gantt[index].Core);
-            var color = "blue";
-            if (core == 1) {
-                color = "red";
+            if(!ran.includes(i)){    
+                core = parseInt(gantt[index].Core);
+                var color = "blue";
+                if (core == 1) {
+                    color = "red";
+                }
+                $("#trace"+ i).append('<div class="run" id="t'+((actualTime*100)+i)+'" style="background: '+ color +';"></div>');
+                ran.push(i);
+            } else {
+                $("#t"+((actualTime*100)+i)).css("background","linear-gradient(to bottom right, red, blue)");
             }
-            $("#trace"+ i).append('<div class="run" style="background-color: '+ color +';"></div>');
-            ran.push(i);
         }
         if(gantt[index].Run == "IO"){
             i = traceCount - devises - 1 + parseInt(gantt[index].Device);
-            var color = "green";
-            var text = blocks[parseInt(gantt[index].Device)][actualTime-1];
-            $("#trace"+ i).append('<div class="run" title="KLT '+text+'" style="background-color: '+ color +';">KLT'+ text +'</div>');
+            var color = "green";//"linear-gradient(to bottom right, red, blue)";
+            var text = gantt[index].KLT;
+            var title = "KLT" + gantt[index].KLT + " ULT" + gantt[index].ULT;
+            $("#trace"+ i).append('<div class="run" title="'+title+'" style="background: '+ color +';">KLT'+ text +'</div>');
             ran.push(i);
         }
     }
+    $( document ).tooltip();
 }
 
 function nextLine(ran,t) {
@@ -104,11 +111,32 @@ function nextLine(ran,t) {
         }
     }
     var readyText = "Ready queue:";
-    if(t < Object.keys(ready).length)
-        for(str in ready[t].split(" ")){
-            if(str != " ") {
-                readyText += "\nKLT" + (parseInt(str) + 1);
-            }
+    if((t-1) < Object.keys(ready).length){
+        var arr = ready[t-1].split(" ");
+        for (var i=0; i< arr.length-1; i++){
+            readyText += " KLT" + arr[i];
         }
+    }
+    readyText += "\nDevise 1:"
+    if((t-1) < Object.keys(blocks[0]).length){
+        var arr = blocks[0][t-1].split(" ");
+        for (var i=0; i< arr.length-1; i++){
+            readyText += " KLT" + arr[i];
+        }
+    }
+    readyText += "\nDevise 2:"
+    if((t-1) < Object.keys(blocks[1]).length){
+        var arr = blocks[1][t-1].split(" ");
+        for (var i=0; i< arr.length-1; i++){
+            readyText += " KLT" + arr[i];
+        }
+    }
+    readyText += "\nDevise 3:"
+    if((t-1) < Object.keys(blocks[2]).length){
+        var arr = blocks[2][t-1].split(" ");
+        for (var i=0; i< arr.length-1; i++){
+            readyText += " KLT" + arr[i];
+        }
+    }
     $("#quantums").append('<span class="qLabels" title="'+ readyText +'">'+ t +'</span>');
 }
