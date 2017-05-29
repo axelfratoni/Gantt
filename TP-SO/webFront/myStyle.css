@@ -41,6 +41,7 @@ body {
 
 .trace {
 	height: 10px;
+	width: 2000px;
 }
 
 .run{
@@ -62,6 +63,7 @@ body {
 #quantums {
 	//margin-top: 7px;
 	position: absolute;
+	width: 2000px;
 }
 
 .qLabels {
