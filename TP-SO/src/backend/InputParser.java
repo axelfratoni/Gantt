@@ -14,7 +14,7 @@ import frontend.Test;
 
 public class InputParser {
 	//private static String path = "src/Pruebas/2 - RR3 - HRRN";
-	private static int MAX_KLT = 3;
+	private static int MAX_KLT = 30;
 	private static int MAX_ULT = 3;
 	private static int MAX_CORES = 2;
 	private static int MAX_PROCESSES = 10;

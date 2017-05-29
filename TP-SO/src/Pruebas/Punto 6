@@ -1,0 +1,72 @@
+6
+RR 5
+1
+KLT
+0
+2
+RR 3
+ULT
+0
+2
+2 1
+2
+ULT
+1
+1
+2 2
+4
+KLT
+0
+1
+FIFO
+ULT
+0
+4
+2 1
+1
+KLT
+0
+2
+RR 4
+ULT
+0
+2
+2 2
+2
+ULT
+1
+1
+2 2
+4
+KLT
+0
+1
+FIFO
+ULT
+0
+4
+2 0
+1
+KLT
+0
+2
+RR 5
+ULT
+0
+2
+2 2
+2
+ULT
+1
+1
+2 0
+4
+KLT
+0
+1
+FIFO
+ULT
+0
+4
+2 1
+1
