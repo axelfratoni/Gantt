@@ -13,7 +13,7 @@ import backend.Burst.BurstType;
 import frontend.Test;
 
 public class InputParser {
-	private static String path = "src/Pruebas/prueba1.txt";
+	private static String path = "src/Pruebas/2 - RR3 - HRRN";
 	private static int MAX_KLT = 3;
 	private static int MAX_ULT = 3;
 	private static int MAX_CORES = 2;
@@ -24,7 +24,7 @@ public class InputParser {
 	private static int MIN_IO_SIZE = 1;
 	private static int MAX_IO_TYPE = 2;
 	private static int MAX_QUANTUM_SIZE = 5;
-	private static int MIN_QUANTUM_SIZE = 3;
+	private static int MIN_QUANTUM_SIZE = 1;
 	
 	public static KernelScheduler build() throws IOException {
 		Path filePath = Paths.get(path);
@@ -85,7 +85,7 @@ public class InputParser {
 				}
 				int cpu1Time= Integer.parseInt(scanner.nextLine());
 				if(!validBurstSize(cpu1Time)){
-					throw new RuntimeException("Tiempo de la primera rafaga de CPU del ULT " + j + " del KLT " + i + " invalido. " + MIN_BURST_SIZE + " <= Tamaño <= " + MAX_BURST_SIZE);
+					throw new RuntimeException("Tiempo de la primera rafaga de CPU del ULT " + j + " del KLT " + i + " invalido. " + MIN_BURST_SIZE + " <= Tamaï¿½o <= " + MAX_BURST_SIZE);
 				}
 				trace.add(new Burst(Burst.BurstType.CPU, cpu1Time));
 				StringTokenizer IO = new StringTokenizer(scanner.nextLine());
@@ -96,12 +96,12 @@ public class InputParser {
 					System.out.println("XDDDDDDD");
 				}
 				if(IO.hasMoreTokens() || !validIOSize(ioTime) || !isValidIOType(ioType)){
-					throw new RuntimeException("Peticion de IO del ULT " + j + " del KLT " + i + " invalido. Forma correcta: \"Tamaño_de_rafaga Tipo_de_io\". " + MIN_IO_SIZE + " <= Tamaño_de_rafaga <= " + MAX_IO_SIZE + " , 0 <= Tipo_de_io <= " + MAX_IO_TYPE);
+					throw new RuntimeException("Peticion de IO del ULT " + j + " del KLT " + i + " invalido. Forma correcta: \"Tamaï¿½o_de_rafaga Tipo_de_io\". " + MIN_IO_SIZE + " <= Tamaï¿½o_de_rafaga <= " + MAX_IO_SIZE + " , 0 <= Tipo_de_io <= " + MAX_IO_TYPE);
 				}
 				trace.add(new Burst(getBurstType(ioType), ioTime));
 				int cpu2Time = Integer.parseInt(scanner.nextLine());
 				if(!validBurstSize(cpu2Time)){
-					throw new RuntimeException("Tiempo de la segunda rafaga de CPU del ULT " + j + " del KLT " + i + " invalido. " + MIN_BURST_SIZE + " <= Tamaño <= " + MAX_BURST_SIZE);
+					throw new RuntimeException("Tiempo de la segunda rafaga de CPU del ULT " + j + " del KLT " + i + " invalido. " + MIN_BURST_SIZE + " <= Tamaï¿½o <= " + MAX_BURST_SIZE);
 				}
 				trace.add(new Burst(Burst.BurstType.CPU, cpu2Time));
 				ULT ult = new ULT(j, trace);
