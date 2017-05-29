@@ -1,0 +1,204 @@
+19
+FIFO
+1
+KLT
+0
+1
+FIFO
+ULT
+0
+2
+2 2
+2
+KLT
+0
+2
+RR 2
+ULT
+0
+3
+1 1
+2
+ULT
+1
+5
+3 0
+2
+KLT
+1
+1
+FIFO
+ULT
+0
+1
+1 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+2
+2
+RR 2
+ULT
+0
+2
+2 2
+2
+ULT
+0
+2
+2 0
+2
+KLT
+0
+1
+FIFO
+ULT
+0
+2
+2 2
+2
+KLT
+0
+2
+RR 2
+ULT
+0
+3
+1 1
+2
+ULT
+1
+5
+3 0
+2
+KLT
+1
+1
+FIFO
+ULT
+0
+1
+1 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+2
+2
+RR 2
+ULT
+0
+2
+2 2
+2
+ULT
+0
+2
+2 0
+2
+KLT
+0
+1
+FIFO
+ULT
+0
+2
+2 2
+2
+KLT
+0
+2
+RR 2
+ULT
+0
+3
+1 1
+2
+ULT
+1
+5
+3 0
+2
+KLT
+1
+1
+FIFO
+ULT
+0
+1
+1 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+1
+1
+FIFO
+ULT
+0
+2
+2 1
+1
+KLT
+2
+2
+RR 2
+ULT
+0
+2
+2 2
+2
+ULT
+0
+2
+2 0
+2
+KLT
+0
+1
+FIFO
+ULT
+0
+2
+2 0
+2

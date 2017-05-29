@@ -17,7 +17,7 @@ public class InputParser {
 	private static int MAX_KLT = 30;
 	private static int MAX_ULT = 3;
 	private static int MAX_CORES = 2;
-	private static int MAX_PROCESSES = 10;
+	private static int MAX_PROCESSES = 30;
 	private static int MAX_BURST_SIZE = 5;
 	private static int MIN_BURST_SIZE = 1;
 	private static int MAX_IO_SIZE = 5;
