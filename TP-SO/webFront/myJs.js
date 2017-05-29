@@ -28,11 +28,17 @@ $(document).ready(function() {
     traceCount += devices;
     traceCount += 1;
     var boxHeight = (40 * (traceCount+1) + 20);
+    var boxWidht = (gantt[Object.keys(gantt).length-1].Time > 24)? (gantt[Object.keys(gantt).length-1].Time * 40) + 80 : 1040;
+    $("#lines").css("width",boxWidht + "px");
     $("#tracerBox").css("height", boxHeight + "px");
     $("#quantums").css("margin-top", (boxHeight - 40) + "px");
+    $("#quantums").css("width",boxWidht + "px");
+    $("#trace").css("width",boxWidht + "px");
+    console.log(boxWidht);
     for (var i = 0; i<traceCount; i++){
         $("#traceContainer").append('<div class="trace" id="trace'+ i +'"></div>');
         $("#trace"+ i).css("margin-top","30px");
+        $("#trace"+ i).css("width",boxWidht + "px");
     }
     for (var key of traceMap.keys()) {
         var label = "KLT" + parseInt(key/100) + " ULT" + key%100 + "-";

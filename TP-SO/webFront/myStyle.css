@@ -28,7 +28,7 @@ body {
     background-size: 40px 40px;  
     background-image:repeating-linear-gradient(0deg, #fff, #fff 1px, transparent 1px, transparent 40px),repeating-linear-gradient(-90deg, #fff, #fff 1px, transparent 1px, transparent 40px);
     height:100%;
-    width: 2000px;
+    //width: 2000px;
     opacity:0.14;
     position:absolute;
     z-index: -3;
@@ -41,7 +41,7 @@ body {
 
 .trace {
 	height: 10px;
-	width: 2000px;
+	//width: 2000px;
 }
 
 .run{
@@ -63,7 +63,7 @@ body {
 #quantums {
 	//margin-top: 7px;
 	position: absolute;
-	width: 2000px;
+	//width: 2000px;
 }
 
 .qLabels {
