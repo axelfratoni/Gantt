@@ -13,7 +13,7 @@ import backend.Burst.BurstType;
 import frontend.Test;
 
 public class InputParser {
-	private static String path = "src/Pruebas/2 - RR3 - HRRN";
+	//private static String path = "src/Pruebas/2 - RR3 - HRRN";
 	private static int MAX_KLT = 3;
 	private static int MAX_ULT = 3;
 	private static int MAX_CORES = 2;
@@ -26,7 +26,7 @@ public class InputParser {
 	private static int MAX_QUANTUM_SIZE = 5;
 	private static int MIN_QUANTUM_SIZE = 1;
 	
-	public static KernelScheduler build() throws IOException {
+	public static KernelScheduler build(String path) throws IOException {
 		Path filePath = Paths.get(path);
 		Scanner scanner = new Scanner(filePath);
 		String threadsCount = "[";
@@ -91,9 +91,9 @@ public class InputParser {
 				StringTokenizer IO = new StringTokenizer(scanner.nextLine());
 				int ioTime = Integer.parseInt(IO.nextToken());
 				int ioType = Integer.parseInt(IO.nextToken());
-				System.out.println(ioTime + " " + ioType);
+				//System.out.println(ioTime + " " + ioType);
 				if(IO.hasMoreTokens()){
-					System.out.println("XDDDDDDD");
+					//System.out.println("XDDDDDDD");
 				}
 				if(IO.hasMoreTokens() || !validIOSize(ioTime) || !isValidIOType(ioType)){
 					throw new RuntimeException("Peticion de IO del ULT " + j + " del KLT " + i + " invalido. Forma correcta: \"Tama�o_de_rafaga Tipo_de_io\". " + MIN_IO_SIZE + " <= Tama�o_de_rafaga <= " + MAX_IO_SIZE + " , 0 <= Tipo_de_io <= " + MAX_IO_TYPE);
